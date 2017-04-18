@@ -9,4 +9,5 @@
     <string name="title_activity_record">RecordActivity</string>
     <string name="title_activity_control">ControlActivity</string>
     <string name="title_activity_in_progress">InProgressActivity</string>
+    <string name="title_activity_application">SmartLivingApp</string>
 </resources>

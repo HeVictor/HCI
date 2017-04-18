@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/victor/.android/build-cache/6c0c924f9cfc0f60e88cc015bf3cc1c6f22a7ab6/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/pre-dexed/debug/classes_aa4b3b20af7959041017ac33bc9b20e695df540a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/victor/.android/build-cache/1f84de307d8da82e8b5485904e0679e9ba121bf0/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/pre-dexed/debug/classes_65ae2993a731acfa3dd315f681ae21b5d3cfbaf0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/victor/.android/build-cache/0123a94887131b063cb414d0237e95720d693cc7/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/pre-dexed/debug/classes_ceaf202a6f2de67b6acf85dd86f3ea84b93d2125.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/victor/.android/build-cache/a5445c9807d4bd6dd5c522f0c432ba81b8bbab4d/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/pre-dexed/debug/classes_5794a19f6843f33c733c3cf6a6af4a5008931938.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/victor/.android/build-cache/f67f49122884f04fa518e41470f282e1b5a9433b/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/pre-dexed/debug/classes_64ef204e03f42d4b1143aeaf8f28369eeecedb14.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/victor/Android/Sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_347da58ba476d9f5e0bddb89d26facc9367c072e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/victor/.android/build-cache/5d5297fe694656d2409ac7d682fa8b63e47e3ff9/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/pre-dexed/debug/classes_0f231e52b7e9ae8a068e52d5f5b58eea1e1f5e54.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/victor/.android/build-cache/abda87d0e4e04c0ffaef2cc613cb0928cee742cc/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/pre-dexed/debug/classes_b64b2655333b121732ccf3a40353f8151ec33430.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/victor/.android/build-cache/1cc0d461ff1bb48ed0628dbd54d210f5f93be982/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/pre-dexed/debug/classes_9e71e7b1ec23a7f115a0084d9a49a36cc76bb343.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/victor/.android/build-cache/f8b85f63a0804482858cea66e55138888c1461ad/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/pre-dexed/debug/classes_dd630d1f8d92d2236cf792c9311e689db5cb5059.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_1b8cddd79e99cdc0cb0aeaec207ed9e8fe2a9bcb/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/victor/.android/build-cache/2c400d03b7e9badf9207e3520a790608a39d8c4a/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/pre-dexed/debug/classes_6922071d11ad5c501b64634454eb0237e3611be5.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="867919fcb28653b8ad04921a25b09bdfa12a900f">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_325c60b4a4df3abaaeae1bcb2f9cd7c4d3101c34/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/victor/.android/build-cache/ad3e6ed404bcebd51d19b6e57ba9d39b51a412d3/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/pre-dexed/debug/classes_5a6fb76ae95da582c3b3bcdd93d4dbe9329ffda8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/victor/.android/build-cache/fca41ac20699f3aea43c592582f261a35030cf34/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/pre-dexed/debug/classes_b4e2519ace1831e73978cafa57d9de1d06023164.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/victor/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_0af569dd1800fad08b790616cfd517763fc4935a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/victor/.android/build-cache/9a0af53e4efb66fd66fd3e81ac0d5de78d7c98e8/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/pre-dexed/debug/classes_72e9d5f2720d238f03e1d90208395963f45d57f5.jar" />
+    </item>
+
+</items>
