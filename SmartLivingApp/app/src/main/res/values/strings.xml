@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Smart Living App</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_appliances">App</string>
+    <string name="title_lifestyle">Lifestyle</string>
+    <string name="title_records">Records</string>
+    <string name="title_control">Control</string>
+    <string name="title_activity_lifestyle">LifestyleActivity</string>
+    <string name="title_activity_record">RecordActivity</string>
+    <string name="title_activity_control">ControlActivity</string>
+    <string name="title_activity_in_progress">InProgressActivity</string>
+</resources>
