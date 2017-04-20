@@ -65,7 +65,7 @@ public class LoginActivity extends Activity {
                 // Handles when the user is at the login-version of the activity
                 if (btn_login_or_register.getText().equals("Login")) {
 
-                    if (username_field.getText().toString().equals("420") && password_field.getText().toString().equals("blazeit")) {
+                    if (username_field.getText().toString().equals("user") && password_field.getText().toString().equals("pass")) {
                         // correct login
                         //login_status.setText("Successful!");
 
