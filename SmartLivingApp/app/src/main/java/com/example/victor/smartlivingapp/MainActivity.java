@@ -21,19 +21,19 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_app:
-                    setTitle("SmartLiving: Appliances");
+                    setTitle("SmartLiving");
                     vf.setDisplayedChild(0);
                     return true;
                 case R.id.navigation_lifestyle:
-                    setTitle("SmartLiving: Lifestyle");
+                    setTitle("SmartLiving");
                     vf.setDisplayedChild(1);
                     return true;
                 case R.id.navigation_records:
-                    setTitle("SmartLiving: Records");
+                    setTitle("SmartLiving");
                     vf.setDisplayedChild(2);
                     return true;
                 case R.id.navigation_control:
-                    setTitle("SmartLiving: In Progress");
+                    setTitle("SmartLiving");
                     vf.setDisplayedChild(3);
                     return true;
             }
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         vf = (ViewFlipper)findViewById( R.id.viewFlipper );
 
         //set title
-        setTitle("SmartLiving: Appliances");
+        setTitle("SmartLiving");
         vf.setDisplayedChild(0);
 
     }

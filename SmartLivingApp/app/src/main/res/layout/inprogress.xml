@@ -7,11 +7,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.victor.smartlivingapp.MainActivity">
+    tools:context="com.example.victor.smartlivingapp.MainActivity"
+    android:layout_marginTop="20px"
+    android:layout_marginLeft="50px"
+    android:layout_marginRight="50px">
 
     <TextView
+        android:id="@+id/inprogresstext"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="In Progress View" />
+        android:layout_height="wrap_content"
+        android:text="Applicances in Progress"
+        android:textSize="30dp"
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="20px"/>
 
 </LinearLayout>
