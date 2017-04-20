@@ -8,10 +8,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ViewFlipper;
+import android.view.Menu;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btn_logout;
     private ViewFlipper vf;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -21,19 +21,19 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_app:
-                    setTitle("Appliances");
+                    setTitle("SmartLiving: Appliances");
                     vf.setDisplayedChild(0);
                     return true;
                 case R.id.navigation_lifestyle:
-                    setTitle("Lifestyle");
+                    setTitle("SmartLiving: Lifestyle");
                     vf.setDisplayedChild(1);
                     return true;
                 case R.id.navigation_records:
-                    setTitle("Records");
+                    setTitle("SmartLiving: Records");
                     vf.setDisplayedChild(2);
                     return true;
                 case R.id.navigation_control:
-                    setTitle("In Progress");
+                    setTitle("SmartLiving: In Progress");
                     vf.setDisplayedChild(3);
                     return true;
             }
@@ -50,22 +50,29 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        btn_logout = (Button) findViewById(R.id.btn_logout);
-
         vf = (ViewFlipper)findViewById( R.id.viewFlipper );
 
         //set title
-        setTitle("Appliances");
+        setTitle("SmartLiving: Appliances");
         vf.setDisplayedChild(0);
 
-        // Code from https://www.learn2crack.com/2016/10/android-switching-between-activities-example.html
-        btn_logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-
-        });
     }
 
+    // create an action bar button
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.actionbar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    // handle button activities
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.btn_logout) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
