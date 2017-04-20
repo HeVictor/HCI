@@ -135,7 +135,7 @@ public class LoginActivity extends AppCompatActivity {
 
     // Code from https://www.learn2crack.com/2016/10/android-switching-between-activities-example.html
     private void launchMainAct() {
-        Intent intent = new Intent(this,ApplicationActivity.class);
+        Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
 
