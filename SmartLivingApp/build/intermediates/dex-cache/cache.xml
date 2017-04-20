@@ -3,156 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/Users/davidmarnocha/.android/build-cache/9246d92cef4c0961105a742510bb54e87aa75036/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_47d2b45d9ddda270e8684477404e72f95a62bd9d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/davidmarnocha/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.2_961559adc35f91d943f2c6d351ba3ae6a8530a20/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/davidmarnocha/.android/build-cache/5f12fd72dad39556c2a9353561b0d3fa0fc843b9/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_753e622222cb20679f1c6ff4e0ebd996304b8a8c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/davidmarnocha/.android/build-cache/dcf6c6d35d2de48c50267a4663cc16a90aa2d9d2/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_547af73a80b546f97603fe1eea5c65ef0b507ee8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/davidmarnocha/.android/build-cache/808985b0d4b4aa7f91e0e5cbff006461391e4f92/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_29eb15367f48480f20adae9e105926e56436e1dc/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/davidmarnocha/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.3.1_95470ce63e136c223e610f6845c9d7566d1244d9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/davidmarnocha/.android/build-cache/a36d5bc2df5f7180ea09758925e8bddca176d51b/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2ebaf87c9838f31b1ca75546c3d699a7f5625949/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/davidmarnocha/.android/build-cache/013703f972710496a9b383fb0cfbd20cf510dbd6/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_fbe769c1cb62feb5add45d21360722c1c96293b4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="252f788fbb968fb6b88fcd43995385e2cd3e8f46">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_0078658e9a3047b9bfc9b4001ab335d6c95f1be1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/davidmarnocha/.android/build-cache/0f643664bf6b08735d5e5d2dd273a89be6992894/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8cb5e8f1c098f800b47826aceea3a616491a8218/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_6682bd660d070c3bc21528c42914da2f2c30ce13/classes.dex" />
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_1b8cddd79e99cdc0cb0aeaec207ed9e8fe2a9bcb/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/davidmarnocha/.android/build-cache/8529dff01f202b8e482e4ed167b035a453f9fe95/output/jars/classes.jar"
+        jar="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_83c75415b3d3860065bfce559e9079179a093ed3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/davidmarnocha/.android/build-cache/480e546e2a483bc00314e8ebb38705704e07d6ee/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b7cc423af320d2f202f4f72c8765c23c2b195de8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/davidmarnocha/.android/build-cache/8aa96f1edd4f0fb394c87cf04a16ccf71ae1b95e/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_380f3205f15b6a520afe3ce698ee295fee068082/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/davidmarnocha/.android/build-cache/91d195305ee6c2cd0aa9ebfe183b2a096e6519a8/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3cb87665251af5a54c8668e89e3960e777192998/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/davidmarnocha/.android/build-cache/baeabda6cc3925b540bb94ac6ed1da5d43669bc8/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_88ddb78257b74ab5b1d781c2b1b9fa3fbec221b9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/davidmarnocha/.android/build-cache/fde8891c8c0ccbf11e22c6d05bdb4bd3b32b7d51/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ddd486f94e9673f26e5d55cd11e87560eaf70827/classes.dex" />
+        sha1="c78ac8b9daa7c4a5264ef28a4aa986cf4bfbe3fd">
+        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_325c60b4a4df3abaaeae1bcb2f9cd7c4d3101c34/classes.dex" />
     </item>
 
 </items>
