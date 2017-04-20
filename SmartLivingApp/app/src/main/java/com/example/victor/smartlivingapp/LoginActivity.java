@@ -2,6 +2,7 @@ package com.example.victor.smartlivingapp;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +16,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends Activity {
     Button btn_login_or_register, btn_back;
     EditText username_field, password_field;
     TextView notification, register_link;
