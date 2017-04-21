@@ -43,6 +43,10 @@ public class LoginActivity extends Activity {
             public void onClick(View v) {
                 //transform to register version activity
                 setActivityVersion("Login");
+
+                // Clear the text fields allowing for user input
+                username_field.setText("");
+                password_field.setText("");
             }
         });
 
@@ -53,6 +57,10 @@ public class LoginActivity extends Activity {
 
                 //transform to register version activity
                 setActivityVersion("Register");
+
+                // Clear the text fields allowing for user input
+                username_field.setText("");
+                password_field.setText("");
 
             }
         });
@@ -76,62 +84,14 @@ public class LoginActivity extends Activity {
                         notification.setText("WRONG!");
                     }
                     notification.setVisibility(View.VISIBLE);
-
                     // Handles when the user is at the register-version of the activity
                 } else {
-
-                    // Get the new user credentials
-                    String new_username = username_field.getText().toString();
-                    String new_password = password_field.getText().toString();
-
-                    if (new_username.toString().isEmpty() || new_password.toString().isEmpty()) {
-                        notification.setText("Username or password must not be empty!");
-                        notification.setVisibility(View.VISIBLE);
-                        return;
-                    } else if (new File(new_username).exists()) {
-                        setTitle("Username already in use!");
-                    }
-                    writeToFile(new_password,new_username);
-
-                    readFromFile(new_username);
-
-
+                    // No implementation, the register button is just here to show what a registering screen looks like.
                 }
 
 
             }
         });
-    }
-
-    // This function writes data to an internal storage file
-    private void writeToFile(String data, String fileName) {
-        try {
-            FileOutputStream fos = openFileOutput(fileName, Context.MODE_PRIVATE);
-            fos.write(data.getBytes());
-            fos.close();
-        }
-        catch (IOException e) {
-            //From StackOverflow users VSB and R9J
-            Log.e("Exception", "File write failed: " + e.toString());
-        }
-    }
-
-    private void readFromFile(String fileName) {
-
-        byte[] byteArray = new byte[100];
-
-        try {
-            FileInputStream fis = openFileInput(fileName);
-            fis.read(byteArray);
-            String readResult = new String(byteArray);
-
-            setTitle(readResult);
-        }
-        catch (IOException e) {
-            //From StackOverflow users VSB and R9J
-            Log.e("Exception", "File write failed: " + e.toString());
-        }
-
     }
 
     // Code from https://www.learn2crack.com/2016/10/android-switching-between-activities-example.html
