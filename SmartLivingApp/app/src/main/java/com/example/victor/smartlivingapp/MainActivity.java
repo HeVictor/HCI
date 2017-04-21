@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ViewFlipper;
 import android.view.Menu;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private Button lawnmowerButton;
     private ProgressBar vacuumProgress;
     private ProgressBar lawnmowerProgress;
+    private TextView vPower;
+    private TextView lPower;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -60,18 +63,20 @@ public class MainActivity extends AppCompatActivity {
         lawnmowerButton = (Button) findViewById(R.id.lawnmower_button);
         vacuumProgress = (ProgressBar) findViewById(R.id.vacuum_progress);
         lawnmowerProgress = (ProgressBar) findViewById(R.id.lawnmower_progress);
+        vPower= (TextView) findViewById(R.id.vacuum_power);
+        lPower = (TextView) findViewById(R.id.lawnmower_power);
 
         vacuumButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createAppliance("vacuum", vacuumProgress);
+                createAppliance("vacuum", vacuumProgress, vPower);
             }
         });
 
         lawnmowerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createAppliance("lawnmower", lawnmowerProgress);
+                createAppliance("lawnmower", lawnmowerProgress, lPower);
             }
         });
 
@@ -99,8 +104,8 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void createAppliance(String type, ProgressBar bar) {
-        Appliance newAppliance = new Appliance(type, bar);
+    public void createAppliance(String type, ProgressBar bar, TextView power) {
+        Appliance newAppliance = new Appliance(type, bar, power, this);
     }
 
 }
