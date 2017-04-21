@@ -9,10 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ViewFlipper;
 import android.view.Menu;
+import android.widget.ProgressBar;
 
 public class MainActivity extends AppCompatActivity {
 
     private ViewFlipper vf;
+    private Button vacuumButton;
+    private Button lawnmowerButton;
+    private ProgressBar vacuumProgress;
+    private ProgressBar lawnmowerProgress;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -51,6 +56,24 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         vf = (ViewFlipper)findViewById( R.id.viewFlipper );
+        vacuumButton = (Button) findViewById(R.id.vacuum_button);
+        lawnmowerButton = (Button) findViewById(R.id.lawnmower_button);
+        vacuumProgress = (ProgressBar) findViewById(R.id.vacuum_progress);
+        lawnmowerProgress = (ProgressBar) findViewById(R.id.lawnmower_progress);
+
+        vacuumButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAppliance("vacuum", vacuumProgress);
+            }
+        });
+
+        lawnmowerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAppliance("lawnmower", lawnmowerProgress);
+            }
+        });
 
         //set title
         setTitle("SmartLiving");
@@ -75,4 +98,9 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void createAppliance(String type, ProgressBar bar) {
+        Appliance newAppliance = new Appliance(type, bar);
+    }
+
 }

@@ -21,4 +21,17 @@
         android:layout_marginTop="20px"
         android:layout_marginBottom="20px"/>
 
+    <ProgressBar
+        android:id="@+id/vacuum_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ProgressBar
+        android:id="@+id/lawnmower_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
 </LinearLayout>
