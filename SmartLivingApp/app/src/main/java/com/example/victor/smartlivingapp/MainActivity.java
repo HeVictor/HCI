@@ -11,6 +11,8 @@ import android.widget.ViewFlipper;
 import android.view.Menu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +23,12 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar lawnmowerProgress;
     private TextView vPower;
     private TextView lPower;
+    private LinearLayout vViewGroupIP;
+    private LinearLayout lViewGroupIP;
+    private LinearLayout vViewGroupComplete;
+    private LinearLayout lViewGroupComplete;
+    private LinearLayout IPcontainer;
+    private LinearLayout compContainer;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -65,18 +73,32 @@ public class MainActivity extends AppCompatActivity {
         lawnmowerProgress = (ProgressBar) findViewById(R.id.lawnmower_progress);
         vPower= (TextView) findViewById(R.id.vacuum_power);
         lPower = (TextView) findViewById(R.id.lawnmower_power);
+        vViewGroupIP = (LinearLayout) findViewById(R.id.vacuum_inprogress);
+        lViewGroupIP = (LinearLayout) findViewById(R.id.lawnmower_inprogress);
+        vViewGroupComplete = (LinearLayout) findViewById(R.id.vacuum_complete);
+        lViewGroupComplete = (LinearLayout) findViewById(R.id.lawnmower_complete);
+        IPcontainer = (LinearLayout) findViewById(R.id.IP_container);
+        compContainer = (LinearLayout) findViewById(R.id.comp_container);
+
+        vacuumProgress.setScaleY(3f);
+        lawnmowerProgress.setScaleY(3f);
+
+        IPcontainer.removeView(vViewGroupIP);
+        IPcontainer.removeView(lViewGroupIP);
+        compContainer.removeView(vViewGroupComplete);
+        compContainer.removeView(lViewGroupComplete);
 
         vacuumButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createAppliance("vacuum", vacuumProgress, vPower);
+                createAppliance("vacuum", vacuumProgress, vPower, vViewGroupIP, vViewGroupComplete, IPcontainer, compContainer);
             }
         });
 
         lawnmowerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createAppliance("lawnmower", lawnmowerProgress, lPower);
+                createAppliance("lawnmower", lawnmowerProgress, lPower, lViewGroupIP, lViewGroupComplete, IPcontainer, compContainer);
             }
         });
 
@@ -104,8 +126,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void createAppliance(String type, ProgressBar bar, TextView power) {
-        Appliance newAppliance = new Appliance(type, bar, power, this);
+    public void createAppliance(String type, ProgressBar bar, TextView power, LinearLayout ip, LinearLayout comp, LinearLayout IPcont, LinearLayout compCont) {
+        Appliance newAppliance = new Appliance(type, bar, power, this, ip, comp, IPcont, compCont);
+    }
+
+    public void reinitProgress() {
+
     }
 
 }

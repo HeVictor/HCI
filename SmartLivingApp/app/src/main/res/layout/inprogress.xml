@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+    android:id="@+id/IP_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -22,6 +22,7 @@
         android:layout_marginBottom="20px"/>
 
     <LinearLayout
+        android:id="@+id/vacuum_inprogress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/lightgray"
@@ -32,18 +33,46 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Vacuum"
-            android:textSize="20dp"/>
+            android:textSize="25dp"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px"
+            android:textStyle="bold"
+            android:textColor="#000000" />
 
-        <ProgressBar
-            android:id="@+id/vacuum_progress"
-            style="?android:attr/progressBarStyleHorizontal"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="30px" />
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Progress"
+                android:textSize="20dp"
+                android:layout_marginLeft="30px"/>
+
+            <ProgressBar
+                android:id="@+id/vacuum_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30px"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="30px"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -61,45 +90,73 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/lightgray"
-        android:layout_marginTop="30px"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lawnmower"
-            android:textSize="20dp"/>
-
-        <ProgressBar
-            android:id="@+id/lawnmower_progress"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="30px" />
-
         <LinearLayout
+            android:id="@+id/lawnmower_inprogress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:background="@color/lightgray"
+            android:layout_marginTop="30px"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Power Consumption: "
-                android:textSize="20dp"/>
+                android:text="Lawnmower"
+                android:textSize="25dp"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="30px"
+                android:textStyle="bold"
+                android:textColor="#000000" />
 
-            <TextView
-                android:id="@+id/lawnmower_power"
-                android:layout_width="wrap_content"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Progress"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="30px"/>
+
+                <ProgressBar
+                    android:id="@+id/lawnmower_progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30px"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginRight="30px"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="30px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Power Consumption: "
+                    android:textSize="20dp"/>
+
+                <TextView
+                    android:id="@+id/lawnmower_power"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"/>
+
+            </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
-
 
 </LinearLayout>
