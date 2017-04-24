@@ -6,22 +6,20 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.victor.smartlivingapp.MainActivity"
-    android:layout_marginTop="20px"
     android:layout_marginLeft="50px"
-    android:layout_marginRight="50px">
+    android:layout_marginRight="50px"
+    android:layout_marginTop="20px"
+    android:orientation="vertical"
+    tools:context="com.example.victor.smartlivingapp.MainActivity">
 
     <TextView
         android:id="@+id/lifestyletext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lifestyle"
-        android:textSize="30dp"
+        android:layout_marginBottom="20px"
         android:layout_marginTop="20px"
-        android:layout_marginBottom="20px"/>
-
-
+        android:text="Lifestyle"
+        android:textSize="30dp" />
 
 
 </LinearLayout>

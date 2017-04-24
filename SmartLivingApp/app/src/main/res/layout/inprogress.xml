@@ -6,43 +6,43 @@
     android:id="@+id/IP_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.victor.smartlivingapp.MainActivity"
-    android:layout_marginTop="20px"
     android:layout_marginLeft="50px"
-    android:layout_marginRight="50px">
+    android:layout_marginRight="50px"
+    android:layout_marginTop="20px"
+    android:orientation="vertical"
+    tools:context="com.example.victor.smartlivingapp.MainActivity">
 
     <TextView
         android:id="@+id/inprogresstext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Applicances in Progress"
-        android:textSize="30dp"
+        android:layout_marginBottom="20px"
         android:layout_marginTop="20px"
-        android:layout_marginBottom="20px"/>
+        android:text="Applicances in Progress"
+        android:textSize="30dp" />
 
     <LinearLayout
         android:id="@+id/vacuum_inprogress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/lightgray"
         android:layout_marginTop="30px"
+        android:background="@color/lightgray"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vacuum"
-            android:textSize="25dp"
             android:layout_marginLeft="30px"
             android:layout_marginRight="30px"
-            android:textStyle="bold"
-            android:textColor="#000000" />
+            android:text="Vacuum"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@android:color/darker_gray"/>
+            android:background="@android:color/darker_gray" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,111 +52,111 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
                 android:text="Progress"
-                android:textSize="20dp"
-                android:layout_marginLeft="30px"/>
+                android:textSize="20dp" />
 
             <ProgressBar
                 android:id="@+id/vacuum_progress"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="30px"
+                android:layout_gravity="center"
                 android:layout_marginLeft="30px"
-                android:layout_marginRight="30px"
-                android:layout_gravity="center"/>
+                android:layout_marginRight="30px" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginLeft="30px"
-            android:layout_marginRight="30px">
+            android:layout_marginRight="30px"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Power Consumption: "
-                android:textSize="20dp"/>
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/vacuum_power"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"/>
+                android:textSize="20dp" />
 
         </LinearLayout>
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/lawnmower_inprogress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30px"
+        android:background="@color/lightgray"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px"
+            android:text="Lawnmower"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray" />
+
         <LinearLayout
-            android:id="@+id/lawnmower_inprogress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/lightgray"
-            android:layout_marginTop="30px"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lawnmower"
-                android:textSize="25dp"
                 android:layout_marginLeft="30px"
-                android:layout_marginRight="30px"
-                android:textStyle="bold"
-                android:textColor="#000000" />
+                android:text="Progress"
+                android:textSize="20dp" />
 
-            <View
+            <ProgressBar
+                android:id="@+id/lawnmower_progress"
+                style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@android:color/darker_gray"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Progress"
-                    android:textSize="20dp"
-                    android:layout_marginLeft="30px"/>
-
-                <ProgressBar
-                    android:id="@+id/lawnmower_progress"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="30px"
-                    android:layout_marginLeft="30px"
-                    android:layout_marginRight="30px"
-                    android:layout_gravity="center"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_height="30px"
+                android:layout_gravity="center"
                 android:layout_marginLeft="30px"
-                android:layout_marginRight="30px">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Power Consumption: "
-                    android:textSize="20dp"/>
-
-                <TextView
-                    android:id="@+id/lawnmower_power"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"/>
-
-            </LinearLayout>
+                android:layout_marginRight="30px" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Power Consumption: "
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/lawnmower_power"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
