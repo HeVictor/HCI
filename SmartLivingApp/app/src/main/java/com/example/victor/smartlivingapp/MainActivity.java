@@ -3,10 +3,15 @@ package com.example.victor.smartlivingapp;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 import android.view.Menu;
 import android.widget.ProgressBar;
@@ -21,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar lawnmowerProgress;
     private TextView vPower;
     private TextView lPower;
+    private ListView diet;
+    private ListView fitness;
+
+    private String[] dietOptions = {"McNuggets","Doritos Cool Ranch"};
+    private String[] fitnessOptions = {"Skip leg day", "Tip fedora"};
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -65,6 +75,35 @@ public class MainActivity extends AppCompatActivity {
         lawnmowerProgress = (ProgressBar) findViewById(R.id.lawnmower_progress);
         vPower= (TextView) findViewById(R.id.vacuum_power);
         lPower = (TextView) findViewById(R.id.lawnmower_power);
+        diet = (ListView) findViewById(R.id.diet_list);
+        fitness = (ListView)findViewById(R.id.fitness_list);
+
+        ArrayAdapter dietAdapter = new ArrayAdapter<String>(this,R.layout.listview_settings,dietOptions);
+        diet.setAdapter(dietAdapter);
+        ArrayAdapter fitnessAdapter = new ArrayAdapter<String>(this,R.layout.listview_settings,fitnessOptions);
+        fitness.setAdapter(fitnessAdapter);
+
+        diet.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String selected = (String) diet.getItemAtPosition(position);
+
+                setupLifestyleDialog(selected,"diet");
+
+            }
+        });
+
+        fitness.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String selected = (String) fitness.getItemAtPosition(position);
+
+                setupLifestyleDialog(selected,"fitness");
+
+            }
+        });
 
         vacuumButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +145,36 @@ public class MainActivity extends AppCompatActivity {
 
     public void createAppliance(String type, ProgressBar bar, TextView power) {
         Appliance newAppliance = new Appliance(type, bar, power, this);
+    }
+
+    // This method sets up a popup dialog box to display details about their selected lifestyle option
+    private void setupLifestyleDialog(String selected, String fitnessOrDiet) {
+
+        String info = "";
+
+        switch (selected) {
+            // The diet details
+            case "McNuggets": info = "Beat the egg and then combine it with water in a bowl. Stir.\n" +
+                    "\n" +
+                    "Combine the flour, salt, MSG, pepper, onion powder and garlic powder in a gallon size zip lock bag.\n" +
+                    "\n" +
+                    "Pound each of the breast filets until about 1/4-inch thick. Then cut into bite sized pieces.\n";
+                break;
+            case "Doritos Cool Ranch": info = "Just buy that shit yo.";
+                break;
+
+            // The fitness details
+            case "Skip leg day": info = "You really shouldn't.";
+                break;
+            case "Tip fedora": info = "M'lady.";
+                break;
+        }
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);
+        dialogBuilder.setTitle("Your " + fitnessOrDiet + " details:");
+        dialogBuilder.setMessage(info);
+        dialogBuilder.setPositiveButton("Ok",null);
+        dialogBuilder.show();
     }
 
 }
