@@ -14,22 +14,19 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!--<Button
-            android:id="@+id/btn_logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="Log out" />-->
 
         <ViewFlipper
             android:id="@+id/viewFlipper"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <include layout="@layout/appliance"/>
-            <include layout="@layout/lifestyle"/>
-            <include layout="@layout/record"/>
-            <include layout="@layout/inprogress"/>
+            <include layout="@layout/appliance" />
+
+            <include layout="@layout/lifestyle" />
+
+            <include layout="@layout/record" />
+
+            <include layout="@layout/inprogress" />
 
         </ViewFlipper>
     </LinearLayout>

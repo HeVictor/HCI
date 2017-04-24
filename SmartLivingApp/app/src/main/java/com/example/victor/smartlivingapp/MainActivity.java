@@ -16,6 +16,14 @@ import android.widget.ViewFlipper;
 import android.view.Menu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.view.LayoutInflater;
+import android.content.Context;
+import java.util.*;
+//import android.app.AlertDialog;
+import android.content.DialogInterface;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,9 +36,16 @@ public class MainActivity extends AppCompatActivity {
     private TextView lPower;
     private ListView diet;
     private ListView fitness;
-
     private String[] dietOptions = {"McNuggets","Doritos Cool Ranch"};
     private String[] fitnessOptions = {"Skip leg day", "Tip fedora"};
+    private LinearLayout vViewGroupIP;
+    private LinearLayout lViewGroupIP;
+    private LinearLayout IPcontainer;
+    private LinearLayout compContainer;
+    private LayoutInflater vi;
+    private ArrayList<Appliance> vacuumList = new ArrayList<Appliance>();
+    private ArrayList<Appliance> lawnmowerList = new ArrayList<Appliance>();
+    private AlertDialog alertDialog;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -105,17 +120,51 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        vViewGroupIP = (LinearLayout) findViewById(R.id.vacuum_inprogress);
+        lViewGroupIP = (LinearLayout) findViewById(R.id.lawnmower_inprogress);
+        IPcontainer = (LinearLayout) findViewById(R.id.IP_container);
+        compContainer = (LinearLayout) findViewById(R.id.comp_container);
+        vi = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        vacuumProgress.setScaleY(3f);
+        lawnmowerProgress.setScaleY(3f);
+
+        IPcontainer.removeView(vViewGroupIP);
+        IPcontainer.removeView(lViewGroupIP);
+
+        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("This appliance is already running. Please wait until it is " +
+                "finished to start it again.");
+
+        alertDialogBuilder.setPositiveButton("Okay",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.dismiss();
+            }
+        });
+
+        alertDialog = alertDialogBuilder.create();
+
         vacuumButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createAppliance("vacuum", vacuumProgress, vPower);
+                if(vacuumList.size() == 0 || vacuumList.get(vacuumList.size() - 1).getCompleted()) {
+                    createAppliance("vacuum", vacuumProgress, vPower, vViewGroupIP, IPcontainer, compContainer, vi);
+                } else {
+                    alertDialog.show();
+                }
+
             }
         });
 
         lawnmowerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createAppliance("lawnmower", lawnmowerProgress, lPower);
+                if(lawnmowerList.size() == 0 || lawnmowerList.get(lawnmowerList.size() - 1).getCompleted()) {
+                    createAppliance("lawnmower", lawnmowerProgress, lPower, lViewGroupIP, IPcontainer, compContainer, vi);
+                } else {
+                    alertDialog.show();
+                }
             }
         });
 
@@ -143,8 +192,16 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void createAppliance(String type, ProgressBar bar, TextView power) {
-        Appliance newAppliance = new Appliance(type, bar, power, this);
+    public void createAppliance(String type, ProgressBar bar, TextView power, LinearLayout ip,
+                                LinearLayout IPcont, LinearLayout compCont,
+                                LayoutInflater vi) {
+        Appliance newAppliance = new Appliance(type, bar, power, this, ip, IPcont, compCont, vi);
+        if(type.equals("vacuum")) {
+            vacuumList.add(newAppliance);
+        }
+        if(type.equals("lawnmower")) {
+            lawnmowerList.add(newAppliance);
+        }
     }
 
     // This method sets up a popup dialog box to display details about their selected lifestyle option

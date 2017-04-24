@@ -6,35 +6,35 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.victor.smartlivingapp.MainActivity"
-    android:layout_marginTop="20px"
     android:layout_marginLeft="50px"
-    android:layout_marginRight="50px">
+    android:layout_marginRight="50px"
+    android:layout_marginTop="20px"
+    android:orientation="vertical"
+    tools:context="com.example.victor.smartlivingapp.MainActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Appliances"
-        android:textSize="30dp"
+        android:layout_marginBottom="20px"
         android:layout_marginTop="20px"
-        android:layout_marginBottom="20px"/>
+        android:text="Appliances"
+        android:textSize="30dp" />
 
     <Button
         android:id="@+id/vacuum_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start Vacuum"
+        android:layout_marginBottom="20px"
         android:layout_marginTop="20px"
-        android:layout_marginBottom="20px"/>
+        android:text="Start Vacuum" />
 
     <Button
         android:id="@+id/lawnmower_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start Lawnmower"
+        android:layout_marginBottom="20px"
         android:layout_marginTop="20px"
-        android:layout_marginBottom="20px"/>
+        android:text="Start Lawnmower" />
 
 </LinearLayout>
