@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView lPower;
     private TextView vDate;
     private TextView lDate;
-    private TextView inprogresstext;
-    private TextView recordtext;
+    //private TextView inprogresstext;
+    //private TextView recordtext;
 
     private ListView diet;
     private ListView fitness;
@@ -102,8 +102,8 @@ public class MainActivity extends AppCompatActivity {
         lPower = (TextView) findViewById(R.id.lawnmower_power);
         vDate = (TextView) findViewById(R.id.vacuum_date);
         lDate = (TextView) findViewById(R.id.lawnmower_date);
-        inprogresstext = (TextView) findViewById(R.id.inprogresstext);
-        recordtext = (TextView) findViewById(R.id.recordtext);
+        //inprogresstext = (TextView) findViewById(R.id.inprogresstext);
+        //recordtext = (TextView) findViewById(R.id.recordtext);
 
         diet = (ListView) findViewById(R.id.diet_list);
         fitness = (ListView)findViewById(R.id.fitness_list);

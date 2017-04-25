@@ -23,6 +23,7 @@
             android:text="Applicance Records"
             android:textSize="30dp" />
 
+        <!--
         <TextView
             android:id="@+id/recordtext"
             android:layout_width="wrap_content"
@@ -32,6 +33,7 @@
             android:text="No Appliance Records for This User!"
             android:textSize="20dp"
             android:gravity="center"/>
+            -->
 
     </LinearLayout>
 </ScrollView>
