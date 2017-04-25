@@ -39,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar lawnmowerProgress;
     private TextView vPower;
     private TextView lPower;
+    private TextView vDate;
+    private TextView lDate;
+    private TextView inprogresstext;
+    private TextView recordtext;
+
     private ListView diet;
     private ListView fitness;
     private String[] dietOptions = {"McNuggets","Doritos Cool Ranch"};
@@ -95,6 +100,11 @@ public class MainActivity extends AppCompatActivity {
         lawnmowerProgress = (ProgressBar) findViewById(R.id.lawnmower_progress);
         vPower= (TextView) findViewById(R.id.vacuum_power);
         lPower = (TextView) findViewById(R.id.lawnmower_power);
+        vDate = (TextView) findViewById(R.id.vacuum_date);
+        lDate = (TextView) findViewById(R.id.lawnmower_date);
+        inprogresstext = (TextView) findViewById(R.id.inprogresstext);
+        recordtext = (TextView) findViewById(R.id.recordtext);
+
         diet = (ListView) findViewById(R.id.diet_list);
         fitness = (ListView)findViewById(R.id.fitness_list);
         leftButton = (Button) findViewById(R.id.left_button);
@@ -159,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(vacuumList.size() == 0 || vacuumList.get(vacuumList.size() - 1).getCompleted()) {
-                    createAppliance("vacuum", vacuumProgress, vPower, vViewGroupIP, IPcontainer, compContainer, vi);
+                    createAppliance("vacuum", vacuumProgress, vPower, vViewGroupIP, IPcontainer, compContainer, vi, vDate);
                 } else {
                     alertDialog.show();
                 }
@@ -172,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(lawnmowerList.size() == 0 || lawnmowerList.get(lawnmowerList.size() - 1).getCompleted()) {
-                    createAppliance("lawnmower", lawnmowerProgress, lPower, lViewGroupIP, IPcontainer, compContainer, vi);
+                    createAppliance("lawnmower", lawnmowerProgress, lPower, lViewGroupIP, IPcontainer, compContainer, vi, lDate);
                 } else {
                     alertDialog.show();
                 }
@@ -234,8 +244,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void createAppliance(String type, ProgressBar bar, TextView power, LinearLayout ip,
                                 LinearLayout IPcont, LinearLayout compCont,
-                                LayoutInflater vi) {
-        Appliance newAppliance = new Appliance(type, bar, power, this, ip, IPcont, compCont, vi);
+                                LayoutInflater vi, TextView dateField) {
+        Appliance newAppliance = new Appliance(type, bar, power, this, ip, IPcont, compCont, vi, dateField);
         if(type.equals("vacuum")) {
             vacuumList.add(newAppliance);
         }
