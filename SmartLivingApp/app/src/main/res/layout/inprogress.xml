@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30px"
-        android:background="@color/lightgray"
+        android:background="#808080"
         android:orientation="vertical">
 
         <TextView
@@ -35,14 +35,14 @@
             android:layout_marginLeft="30px"
             android:layout_marginRight="30px"
             android:text="Vacuum"
-            android:textColor="#000000"
+            android:textColor="#81DAF5"
             android:textSize="25dp"
             android:textStyle="bold" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@android:color/darker_gray" />
+            android:background="@color/lightgray" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,7 +54,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30px"
                 android:text="Progress"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textColor="@color/lightgray"/>
 
             <ProgressBar
                 android:id="@+id/vacuum_progress"
@@ -95,7 +96,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30px"
-        android:background="@color/lightgray"
+        android:background="#808080"
         android:orientation="vertical">
 
         <TextView
@@ -104,14 +105,14 @@
             android:layout_marginLeft="30px"
             android:layout_marginRight="30px"
             android:text="Lawnmower"
-            android:textColor="#000000"
+            android:textColor="#81DAF5"
             android:textSize="25dp"
             android:textStyle="bold" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@android:color/darker_gray" />
+            android:background="@color/lightgray" />
 
         <LinearLayout
             android:layout_width="match_parent"

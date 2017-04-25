@@ -30,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
     private ViewFlipper vf;
     private Button vacuumButton;
     private Button lawnmowerButton;
+    private Button leftButton;
+    private Button rightButton;
+    private Button upButton;
+    private Button downButton;
+    private TextView directionControl;
     private ProgressBar vacuumProgress;
     private ProgressBar lawnmowerProgress;
     private TextView vPower;
@@ -92,6 +97,11 @@ public class MainActivity extends AppCompatActivity {
         lPower = (TextView) findViewById(R.id.lawnmower_power);
         diet = (ListView) findViewById(R.id.diet_list);
         fitness = (ListView)findViewById(R.id.fitness_list);
+        leftButton = (Button) findViewById(R.id.left_button);
+        rightButton = (Button) findViewById(R.id.right_button);
+        downButton = (Button) findViewById(R.id.down_button);
+        upButton = (Button) findViewById(R.id.up_button);
+        directionControl = (TextView) findViewById(R.id.direction_control);
 
         ArrayAdapter dietAdapter = new ArrayAdapter<String>(this,R.layout.listview_settings,dietOptions);
         diet.setAdapter(dietAdapter);
@@ -157,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         lawnmowerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -168,9 +179,38 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        leftButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                directionControl.setText("Moving Left");
+            }
+        });
+
+        rightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                directionControl.setText("Moving Right");
+            }
+        });
+
+        upButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                directionControl.setText("Moving Forward");
+            }
+        });
+
+        downButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                directionControl.setText("Moving Backward");
+            }
+        });
+
         //set title
         setTitle("SmartLiving");
         vf.setDisplayedChild(0);
+        directionControl.setText("Moving Forward");
 
     }
 
