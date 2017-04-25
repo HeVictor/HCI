@@ -75,9 +75,14 @@ public class LoginActivity extends Activity {
 
                     if (username_field.getText().toString().equals("user") && password_field.getText().toString().equals("pass")) {
                         // correct login
-                        //login_status.setText("Successful!");
+
 
                         launchMainAct();
+
+                        // clear text fields
+                        username_field.setText("");
+                        password_field.setText("");
+
 
                     } else {
                         // wrong login

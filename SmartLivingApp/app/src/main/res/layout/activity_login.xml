@@ -8,8 +8,10 @@
     tools:context="com.example.victor.smartlivingapp.LoginActivity">
 
     <RelativeLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp">
+        android:layout_width="395dp"
+        android:layout_height="587dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -17,7 +19,8 @@
             android:layout_marginTop="300px"
             android:gravity="center"
             android:text="SmartLiving"
-            android:textSize="50dp" />
+            android:textSize="50dp"
+            android:textColor="#81DAF5"/>
 
         <Button
             android:id="@+id/button"

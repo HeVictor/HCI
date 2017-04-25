@@ -30,16 +30,23 @@ public class MainActivity extends AppCompatActivity {
     private ViewFlipper vf;
     private Button vacuumButton;
     private Button lawnmowerButton;
+    private Button leftButton;
+    private Button rightButton;
+    private Button upButton;
+    private Button downButton;
+    private TextView directionControl;
     private ProgressBar vacuumProgress;
     private ProgressBar lawnmowerProgress;
     private TextView vPower;
     private TextView lPower;
     private TextView vDate;
     private TextView lDate;
+    //private TextView inprogresstext;
+    //private TextView recordtext;
 
     private ListView diet;
     private ListView fitness;
-    private String[] dietOptions = {"McNuggets","Doritos Cool Ranch"};
+    private String[] dietOptions = {"Roast Beef and Horseradish Cream on Pear","Beet Chips With Curried Yogurt", "Sweet Potato Fries With Chipotle Yogurt"};
     private String[] fitnessOptions = {"Skip leg day", "Tip fedora"};
     private LinearLayout vViewGroupIP;
     private LinearLayout lViewGroupIP;
@@ -95,9 +102,16 @@ public class MainActivity extends AppCompatActivity {
         lPower = (TextView) findViewById(R.id.lawnmower_power);
         vDate = (TextView) findViewById(R.id.vacuum_date);
         lDate = (TextView) findViewById(R.id.lawnmower_date);
+        //inprogresstext = (TextView) findViewById(R.id.inprogresstext);
+        //recordtext = (TextView) findViewById(R.id.recordtext);
 
         diet = (ListView) findViewById(R.id.diet_list);
         fitness = (ListView)findViewById(R.id.fitness_list);
+        leftButton = (Button) findViewById(R.id.left_button);
+        rightButton = (Button) findViewById(R.id.right_button);
+        downButton = (Button) findViewById(R.id.down_button);
+        upButton = (Button) findViewById(R.id.up_button);
+        directionControl = (TextView) findViewById(R.id.direction_control);
 
         ArrayAdapter dietAdapter = new ArrayAdapter<String>(this,R.layout.listview_settings,dietOptions);
         diet.setAdapter(dietAdapter);
@@ -163,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         lawnmowerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -174,9 +189,38 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        leftButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                directionControl.setText("Moving Left");
+            }
+        });
+
+        rightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                directionControl.setText("Moving Right");
+            }
+        });
+
+        upButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                directionControl.setText("Moving Forward");
+            }
+        });
+
+        downButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                directionControl.setText("Moving Backward");
+            }
+        });
+
         //set title
         setTitle("SmartLiving");
         vf.setDisplayedChild(0);
+        directionControl.setText("Moving Forward");
 
     }
 
@@ -217,13 +261,19 @@ public class MainActivity extends AppCompatActivity {
 
         switch (selected) {
             // The diet details
-            case "McNuggets": info = "Beat the egg and then combine it with water in a bowl. Stir.\n" +
-                    "\n" +
-                    "Combine the flour, salt, MSG, pepper, onion powder and garlic powder in a gallon size zip lock bag.\n" +
-                    "\n" +
-                    "Pound each of the breast filets until about 1/4-inch thick. Then cut into bite sized pieces.\n";
+            case "Roast Beef and Horseradish Cream on Pear": info = "Mix together 1 tablespoon low-fat sour cream and 1 " +
+                    "teaspoon prepared horseradish. Dividing evenly, top ½ sliced pear with 3 slices deli roast beef, " +
+                    "the horseradish cream, and fresh herbs (such as chervil, parsley, or tarragon).\n\n" +
+                    "From realsimple.com";
                 break;
-            case "Doritos Cool Ranch": info = "Just buy that shit yo.";
+            case "Beet Chips With Curried Yogurt": info = "Mix together 2 tablespoons plain low-fat Greek yogurt and " +
+                    "⅛ to ¼ teaspoon curry powder. Serve with 1 cup beet chips.\n\n" +
+                    "From realsimple.com";
+                break;
+            case "Sweet Potato Fries With Chipotle Yogurt": info = "Cook 14 frozen sweet potato fries according to " +
+                    "the package directions. Mix together 2 tablespoons plain low-fat yogurt and ½ teaspoon chipotles in " +
+                    "adobo sauce and serve for dipping.\n\n" +
+                    "From realsimple.com";
                 break;
 
             // The fitness details

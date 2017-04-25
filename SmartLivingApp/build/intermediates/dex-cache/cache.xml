@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_1b8cddd79e99cdc0cb0aeaec207ed9e8fe2a9bcb/classes.dex" />
+        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_6682bd660d070c3bc21528c42914da2f2c30ce13/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="395c7660f6199d6f2ef24d8da3d58566b537ef9e">
-        <dex dex="/home/victor/Desktop/HCI/Git/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_325c60b4a4df3abaaeae1bcb2f9cd7c4d3101c34/classes.dex" />
+        sha1="ba44c1dc3f97007153814c85638122d703864843">
+        <dex dex="/Users/davidmarnocha/Documents/HCI/HCI/SmartLivingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_0078658e9a3047b9bfc9b4001ab335d6c95f1be1/classes.dex" />
     </item>
 
 </items>
