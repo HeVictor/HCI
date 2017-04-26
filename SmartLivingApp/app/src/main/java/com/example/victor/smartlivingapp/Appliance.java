@@ -75,7 +75,7 @@ public class Appliance {
                                 lOrV = R.id.completed_l_date;
                             }
                             compCont.addView(recordview);
-                            TextView completedDateField = (TextView) mainActivity.findViewById(lOrV);
+                            TextView completedDateField = (TextView) recordview.findViewById(lOrV);
                             completedDateField.setText(getCurrentDate());
                             timer.cancel();
                             timer.purge();

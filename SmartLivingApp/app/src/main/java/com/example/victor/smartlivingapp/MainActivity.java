@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView diet;
     private ListView fitness;
-    private String[] dietOptions = {"McNuggets","Doritos Cool Ranch"};
+    private String[] dietOptions = {"Roast Beef and Horseradish Cream on Pear","Beet Chips With Curried Yogurt", "Sweet Potato Fries With Chipotle Yogurt"};
     private String[] fitnessOptions = {"Skip leg day", "Tip fedora"};
     private LinearLayout vViewGroupIP;
     private LinearLayout lViewGroupIP;
@@ -280,13 +280,19 @@ public class MainActivity extends AppCompatActivity {
 
         switch (selected) {
             // The diet details
-            case "McNuggets": info = "Beat the egg and then combine it with water in a bowl. Stir.\n" +
-                    "\n" +
-                    "Combine the flour, salt, MSG, pepper, onion powder and garlic powder in a gallon size zip lock bag.\n" +
-                    "\n" +
-                    "Pound each of the breast filets until about 1/4-inch thick. Then cut into bite sized pieces.\n";
+            case "Roast Beef and Horseradish Cream on Pear": info = "Mix together 1 tablespoon low-fat sour cream and 1 " +
+                    "teaspoon prepared horseradish. Dividing evenly, top ½ sliced pear with 3 slices deli roast beef, " +
+                    "the horseradish cream, and fresh herbs (such as chervil, parsley, or tarragon).\n\n" +
+                    "From realsimple.com";
                 break;
-            case "Doritos Cool Ranch": info = "Just buy that shit yo.";
+            case "Beet Chips With Curried Yogurt": info = "Mix together 2 tablespoons plain low-fat Greek yogurt and " +
+                    "⅛ to ¼ teaspoon curry powder. Serve with 1 cup beet chips.\n\n" +
+                    "From realsimple.com";
+                break;
+            case "Sweet Potato Fries With Chipotle Yogurt": info = "Cook 14 frozen sweet potato fries according to " +
+                    "the package directions. Mix together 2 tablespoons plain low-fat yogurt and ½ teaspoon chipotles in " +
+                    "adobo sauce and serve for dipping.\n\n" +
+                    "From realsimple.com";
                 break;
 
             // The fitness details
