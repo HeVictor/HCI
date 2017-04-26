@@ -21,6 +21,12 @@
         android:text="Control Appliance"
         android:textSize="30dp" />
 
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back" />
+
     <TextView
         android:id="@+id/direction_control"
         android:layout_width="wrap_content"
@@ -31,42 +37,47 @@
         android:layout_gravity="center_horizontal"/>
 
     <FrameLayout
-        android:layout_width="1200px"
-        android:layout_height="1200px"
+        android:layout_width="1000px"
+        android:layout_height="1000px"
         android:layout_gravity="center">
 
         <Button
             android:id="@+id/left_button"
-            android:layout_width="400px"
-            android:layout_height="400px"
+            android:layout_width="333px"
+            android:layout_height="333px"
             android:layout_gravity="left|center_vertical"
-            android:text="Left" />
+            android:text="Left"
+            android:textSize="10dp"/>
 
         <Button
             android:id="@+id/right_button"
-            android:layout_width="400px"
-            android:layout_height="400px"
+            android:layout_width="333px"
+            android:layout_height="333px"
             android:layout_gravity="right|center_vertical"
-            android:text="Right" />
+            android:text="Right"
+            android:textSize="10dp"/>
 
         <Button
             android:id="@+id/up_button"
-            android:layout_width="400px"
-            android:layout_height="400px"
+            android:layout_width="333px"
+            android:layout_height="333px"
             android:layout_gravity="center_horizontal"
-            android:text="Forward" />
+            android:text="Forward"
+            android:textSize="10dp"/>
 
         <Button
-            android:layout_width="400px"
-            android:layout_height="400px"
+            android:layout_width="333px"
+            android:layout_height="333px"
             android:layout_gravity="center"/>
 
         <Button
             android:id="@+id/down_button"
-            android:layout_width="400px"
-            android:layout_height="400px"
+            android:layout_width="333px"
+            android:layout_height="333px"
             android:layout_gravity="center|bottom"
-            android:text="Backward" />
+            android:text="Backward"
+            android:textSize="10dp"
+            />
     </FrameLayout>
 
 </LinearLayout>
