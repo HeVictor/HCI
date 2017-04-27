@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView lPower;
     private TextView vDate;
     private TextView lDate;
-    //private TextView inprogresstext;
-    //private TextView recordtext;
+    private TextView inprogresstext;
+    private TextView recordtext;
 
     private ListView diet;
     private ListView fitness;
@@ -99,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
         lPower = (TextView) findViewById(R.id.lawnmower_power);
         vDate = (TextView) findViewById(R.id.vacuum_date);
         lDate = (TextView) findViewById(R.id.lawnmower_date);
-        //inprogresstext = (TextView) findViewById(R.id.inprogresstext);
-        //recordtext = (TextView) findViewById(R.id.recordtext);
+        inprogresstext = (TextView) findViewById(R.id.inprogresstext);
+        recordtext = (TextView) findViewById(R.id.recordtext);
 
         diet = (ListView) findViewById(R.id.diet_list);
         fitness = (ListView)findViewById(R.id.fitness_list);
@@ -150,6 +150,8 @@ public class MainActivity extends AppCompatActivity {
         IPcontainer.removeView(vViewGroupIP);
         IPcontainer.removeView(lViewGroupIP);
 
+        //inprogresstext.setText(IPcontainer.getChildCount());
+
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("This appliance is already running. Please wait until it is " +
                 "finished to start it again.");
@@ -167,7 +169,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(vacuumList.size() == 0 || vacuumList.get(vacuumList.size() - 1).getCompleted()) {
-                    createAppliance("vacuum", vacuumProgress, vPower, vViewGroupIP, IPcontainer, compContainer, vi, vDate);
+                    createAppliance("vacuum", vacuumProgress, vPower, vViewGroupIP, IPcontainer,
+                            compContainer, vi, vDate, inprogresstext, recordtext);
                 } else {
                     alertDialog.show();
                 }
@@ -180,7 +183,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(lawnmowerList.size() == 0 || lawnmowerList.get(lawnmowerList.size() - 1).getCompleted()) {
-                    createAppliance("lawnmower", lawnmowerProgress, lPower, lViewGroupIP, IPcontainer, compContainer, vi, lDate);
+                    createAppliance("lawnmower", lawnmowerProgress, lPower, lViewGroupIP, IPcontainer,
+                            compContainer, vi, lDate, inprogresstext, recordtext);
                 } else {
                     alertDialog.show();
                 }
@@ -263,12 +267,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void createAppliance(String type, ProgressBar bar, TextView power, LinearLayout ip,
                                 LinearLayout IPcont, LinearLayout compCont,
-                                LayoutInflater vi, TextView dateField) {
-        Appliance newAppliance = new Appliance(type, bar, power, this, ip, IPcont, compCont, vi, dateField);
+                                LayoutInflater vi, TextView dateField, TextView inprogresstext, TextView recordtext) {
+        Appliance newAppliance = new Appliance(type, bar, power, this, ip, IPcont, compCont, vi, dateField, inprogresstext, recordtext);
         if(type.equals("vacuum")) {
             vacuumList.add(newAppliance);
         }
-        if(type.equals("lawnmower")) {
+        else if(type.equals("lawnmower")) {
             lawnmowerList.add(newAppliance);
         }
     }

@@ -1,6 +1,7 @@
 package com.example.victor.smartlivingapp;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -24,14 +25,14 @@ public class Appliance {
 
     public Appliance(String type, ProgressBar bar, TextView power, Activity mainActivity,
                      LinearLayout ip, LinearLayout contIP, LinearLayout compCont,
-                     LayoutInflater vi, TextView dateField) {
+                     LayoutInflater vi, TextView dateField, TextView inprogresstext, TextView recordtext) {
         this.type = type;
         this.completed = false;
         if(type.equals("vacuum")) rate = 0.61;
         if(type.equals("lawnmower")) rate = 0.53;
         this.progress = 0;
         contIP.addView(ip);
-        incrementProgress(bar, power, mainActivity, ip, contIP, compCont, vi, dateField);
+        incrementProgress(bar, power, mainActivity, ip, contIP, compCont, vi, dateField, inprogresstext, recordtext);
     }
 
     public boolean getCompleted() {
@@ -45,7 +46,8 @@ public class Appliance {
     public void incrementProgress(final ProgressBar bar, final TextView power,
                                   final Activity mainActivity, final ViewGroup ip,
                                   final ViewGroup contIP, final ViewGroup compCont,
-                                  final LayoutInflater vi, final TextView dateField) {
+                                  final LayoutInflater vi, final TextView dateField,
+                                  final TextView inprogresstext, final TextView recordtext) {
         int delay = 1000; // delay for 5 sec.
         int period = 100; // repeat every sec.
         final Timer timer = new Timer();
@@ -62,9 +64,14 @@ public class Appliance {
                         DecimalFormat df = new DecimalFormat("#.00");
                         power.setText(df.format(consumption) + " kW");
                         dateField.setText(getCurrentDate());
+                        inprogresstext.setVisibility(View.GONE);
                         if(progress >= 100) {
                             completed = true;
                             contIP.removeView(ip);
+                            recordtext.setVisibility(View.GONE);
+                            if(contIP.getChildCount() == 2) {
+                                inprogresstext.setVisibility(View.VISIBLE);
+                            }
                             int lOrV = 0;
                             if(type.equals("vacuum")) {
                                 recordview = (LinearLayout) vi.inflate(R.layout.record_inflate_vacuum, compCont, false);
