@@ -86,9 +86,9 @@ public class LoginActivity extends Activity {
 
                     } else {
                         // wrong login
-                        notification.setText("WRONG!");
+                        notification.setVisibility(View.VISIBLE);
                     }
-                    notification.setVisibility(View.VISIBLE);
+
                     // Handles when the user is at the register-version of the activity
                 } else {
                     // No implementation, the register button is just here to show what a registering screen looks like.
