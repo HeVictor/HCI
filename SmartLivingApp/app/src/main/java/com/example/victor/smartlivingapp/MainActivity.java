@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private Button rightButton;
     private Button upButton;
     private Button downButton;
+    private Button backButton;
     private TextView directionControl;
     private ProgressBar vacuumProgress;
     private ProgressBar lawnmowerProgress;
@@ -64,19 +65,15 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_app:
-                    setTitle("SmartLiving");
                     vf.setDisplayedChild(0);
                     return true;
                 case R.id.navigation_lifestyle:
-                    setTitle("SmartLiving");
                     vf.setDisplayedChild(1);
                     return true;
                 case R.id.navigation_records:
-                    setTitle("SmartLiving");
                     vf.setDisplayedChild(2);
                     return true;
                 case R.id.navigation_control:
-                    setTitle("SmartLiving");
                     vf.setDisplayedChild(3);
                     return true;
             }
@@ -112,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
         downButton = (Button) findViewById(R.id.down_button);
         upButton = (Button) findViewById(R.id.up_button);
         directionControl = (TextView) findViewById(R.id.direction_control);
+        backButton = (Button) findViewById(R.id.back_button);
 
         ArrayAdapter dietAdapter = new ArrayAdapter<String>(this,R.layout.listview_settings,dietOptions);
         diet.setAdapter(dietAdapter);
@@ -217,10 +215,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vf.setDisplayedChild(3);
+            }
+        });
+
         //set title
         setTitle("SmartLiving");
         vf.setDisplayedChild(0);
         directionControl.setText("Moving Forward");
+
+        vViewGroupIP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vf.setDisplayedChild(4);
+            }
+        });
+
+        lViewGroupIP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vf.setDisplayedChild(4);
+            }
+        });
 
     }
 
