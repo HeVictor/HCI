@@ -22,9 +22,9 @@ import java.util.*;
 
 /**
  * This class represents a smart appliance controlled by the SmartLivingApp.
- * It is responsible for running the smart application for a set operation and
+ * It is responsible for running the smart appliance for a set operation and
  * then adding the completed record to the Records screen.
- * It will also handle file saving and reading to save the user's past application runs.
+ * It will also handle file saving and reading to save the user's past appliance runs.
  */
 public class Appliance {
 
@@ -64,7 +64,7 @@ public class Appliance {
 
         // Starts the operation of running the appliance.
         contIP.addView(ip);
-        runApplication(bar, power, mainActivity, ip, contIP, compCont, vi, dateField,
+        runAppliance(bar, power, mainActivity, ip, contIP, compCont, vi, dateField,
                 inprogresstext, recordtext);
     }
 
@@ -77,7 +77,7 @@ public class Appliance {
     }
 
     /**
-     * This method runs the application and shows a self-incrementing progress bar while it is
+     * This method runs the appliance and shows a self-incrementing progress bar while it is
      * happening in the "In Progress" tab. After completion, it saves the completed details
      * internally and also adds it to be displayed at the "Records" tab.
      *
@@ -92,11 +92,11 @@ public class Appliance {
      * @param inprogresstext
      * @param recordtext
      */
-    public void runApplication(final ProgressBar bar, final TextView power,
-                               final Activity mainActivity, final ViewGroup ip,
-                               final ViewGroup contIP, final ViewGroup compCont,
-                               final LayoutInflater vi, final TextView dateField,
-                               final TextView inprogresstext, final TextView recordtext) {
+    public void runAppliance(final ProgressBar bar, final TextView power,
+                             final Activity mainActivity, final ViewGroup ip,
+                             final ViewGroup contIP, final ViewGroup compCont,
+                             final LayoutInflater vi, final TextView dateField,
+                             final TextView inprogresstext, final TextView recordtext) {
         int delay = 1000; // delay for 5 sec.
         int period = 100; // repeat every sec.
         final Timer timer = new Timer();
