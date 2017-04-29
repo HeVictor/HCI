@@ -64,7 +64,7 @@ public class Appliance {
 
         // Starts the operation of running the appliance.
         contIP.addView(ip);
-        incrementProgress(bar, power, mainActivity, ip, contIP, compCont, vi, dateField,
+        runApplication(bar, power, mainActivity, ip, contIP, compCont, vi, dateField,
                 inprogresstext, recordtext);
     }
 
@@ -92,11 +92,11 @@ public class Appliance {
      * @param inprogresstext
      * @param recordtext
      */
-    public void incrementProgress(final ProgressBar bar, final TextView power,
-                                  final Activity mainActivity, final ViewGroup ip,
-                                  final ViewGroup contIP, final ViewGroup compCont,
-                                  final LayoutInflater vi, final TextView dateField,
-                                  final TextView inprogresstext, final TextView recordtext) {
+    public void runApplication(final ProgressBar bar, final TextView power,
+                               final Activity mainActivity, final ViewGroup ip,
+                               final ViewGroup contIP, final ViewGroup compCont,
+                               final LayoutInflater vi, final TextView dateField,
+                               final TextView inprogresstext, final TextView recordtext) {
         int delay = 1000; // delay for 5 sec.
         int period = 100; // repeat every sec.
         final Timer timer = new Timer();
