@@ -186,13 +186,8 @@ public class MainActivity extends AppCompatActivity {
 
                 AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);
                 dialogBuilder.setTitle("Clearing all records");
-                dialogBuilder.setMessage("Are you sure you want to clear all existing smart application records?");
-                dialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface di, int selection) {
-
-                    }
-                });
+                dialogBuilder.setMessage("Are you sure you want to clear all existing smart appliance records?");
+                dialogBuilder.setNegativeButton("No", null);
                 dialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface di, int selection) {
@@ -338,6 +333,11 @@ public class MainActivity extends AppCompatActivity {
         else if(type.equals("lawnmower")) {
             lawnmowerList.add(newAppliance);
         }
+    }
+
+    // This method gets the viewflipper for the app
+    public ViewFlipper getViewFlipper() {
+        return vf;
     }
 
     // This method sets up a popup dialog box to display details about their selected lifestyle option

@@ -1,6 +1,8 @@
 package com.example.victor.smartlivingapp;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import android.widget.LinearLayout;
+import android.widget.ViewFlipper;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -146,6 +149,25 @@ public class Appliance {
                             // Save the completed record to internal storage as a line in a
                             // text file.
                             saveRecord(mainActivity,"SmartVacuum" + "@" + getCurrentDate());
+
+                            final ViewFlipper vf = ((MainActivity) mainActivity).getViewFlipper();
+
+                            if (vf.getDisplayedChild() == 4) {
+
+                                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mainActivity);
+                                dialogBuilder.setTitle("Operation completed");
+                                dialogBuilder.setMessage("The smart appliance has finished its operation.");
+                                dialogBuilder.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface di, int selection) {
+                                        vf.setDisplayedChild(3);
+                                    }
+                                });
+                                dialogBuilder.show();
+
+                            }
+
+
 
                             // Terminate the timer
                             timer.cancel();
