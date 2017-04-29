@@ -4,18 +4,16 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.content.Intent;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
+/**
+ *  This Activity class is for a login screen that the SmartLivingApp users
+ *  can use to log in or register a new account.
+ */
 public class LoginActivity extends Activity {
     Button btn_login_or_register, btn_back;
     EditText username_field, password_field;
@@ -27,6 +25,7 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // Create objects for the Android widgets
         btn_login_or_register = (Button)findViewById(R.id.button);
         btn_back = (Button)findViewById(R.id.btn_back);
         username_field = (EditText)findViewById(R.id.username);
@@ -73,14 +72,15 @@ public class LoginActivity extends Activity {
                 // Handles when the user is at the login-version of the activity
                 if (btn_login_or_register.getText().equals("Login")) {
 
-                    if (username_field.getText().toString().equals("user") && password_field.getText().toString().equals("pass")) {
+                    if (username_field.getText().toString().equals("user") &&
+                            password_field.getText().toString().equals("pass")) {
                         // correct login
 
                         // Clear the text fields allowing for user input
                         username_field.setText("");
                         password_field.setText("");
 
-
+                        // Launch the LoginActivity
                         launchMainAct();
 
                     } else {
@@ -91,12 +91,6 @@ public class LoginActivity extends Activity {
                     // Handles when the user is at the register-version of the activity
                 } else {
                     // No implementation, the register button is just here to show what a registering screen looks like.
-                    /*Appliance.saveRecord(LoginActivity.this,"WTF");
-                    String str = Appliance.readRecord(new File(LoginActivity.this.getFilesDir(), "records"));
-
-                    username_field.setText(str);
-
-                   Appliance.clearFile(new File(LoginActivity.this.getFilesDir(), "records"));*/
                 }
 
 
@@ -105,6 +99,7 @@ public class LoginActivity extends Activity {
     }
 
     // Code from https://www.learn2crack.com/2016/10/android-switching-between-activities-example.html
+    // This launches the MainActivity
     private void launchMainAct() {
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
