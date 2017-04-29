@@ -27,7 +27,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20px"
         android:layout_marginTop="20px"
-        android:text="Start Vacuum" />
+        android:text="Start Vacuum"
+        android:drawableRight="@drawable/vacuum"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="30dp"
+        android:gravity="left|center_vertical"/>
 
     <Button
         android:id="@+id/lawnmower_button"
@@ -35,6 +40,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20px"
         android:layout_marginTop="20px"
-        android:text="Start Lawnmower" />
+        android:text="Start Lawnmower"
+        android:drawableRight="@drawable/lawnmower"
+        android:paddingLeft="30dp"
+        android:gravity="left|center_vertical"/>
 
 </LinearLayout>
