@@ -23,7 +23,6 @@ import android.content.Context;
 
 import java.io.File;
 import java.util.*;
-//import android.app.AlertDialog;
 import android.content.DialogInterface;
 
 
