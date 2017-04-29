@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main);
 
         //initialize bottom navbar
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        final BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         //viewflipper to view different views in navbar
@@ -212,6 +212,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 vf.setDisplayedChild(3);
+                navigation.setVisibility(View.VISIBLE);
             }
         });
 
@@ -220,6 +221,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 vf.setDisplayedChild(4);
+                navigation.setVisibility(View.GONE);
             }
         });
 
@@ -228,6 +230,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 vf.setDisplayedChild(4);
+                navigation.setVisibility(View.GONE);
             }
         });
 
