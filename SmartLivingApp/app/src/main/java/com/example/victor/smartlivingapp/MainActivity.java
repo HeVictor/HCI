@@ -20,6 +20,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.view.LayoutInflater;
 import android.content.Context;
+
+import java.io.File;
 import java.util.*;
 //import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private Button upButton;
     private Button downButton;
     private Button backButton;
+    private Button clearButton;
+
     private TextView directionControl;
     private ProgressBar vacuumProgress;
     private ProgressBar lawnmowerProgress;
@@ -48,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView diet;
     private ListView fitness;
     private String[] dietOptions = {"Roast Beef and Horseradish Cream on Pear","Beet Chips With Curried Yogurt", "Sweet Potato Fries With Chipotle Yogurt"};
-    private String[] fitnessOptions = {"Skip leg day", "Tip fedora"};
+    private String[] fitnessOptions = {"Ab wheel rollout", "Front squat", "Romanian Deadlift"};
     private LinearLayout vViewGroupIP;
     private LinearLayout lViewGroupIP;
     private LinearLayout IPcontainer;
@@ -110,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         upButton = (Button) findViewById(R.id.up_button);
         directionControl = (TextView) findViewById(R.id.direction_control);
         backButton = (Button) findViewById(R.id.back_button);
+        clearButton = (Button) findViewById(R.id.clear_button);
 
         ArrayAdapter dietAdapter = new ArrayAdapter<String>(this,R.layout.listview_settings,dietOptions);
         diet.setAdapter(dietAdapter);
@@ -150,8 +155,38 @@ public class MainActivity extends AppCompatActivity {
         IPcontainer.removeView(vViewGroupIP);
         IPcontainer.removeView(lViewGroupIP);
 
-        //inprogresstext.setText(IPcontainer.getChildCount());
+        Appliance.setupExistingRecords(this,compContainer,vi,recordtext);
 
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                dialogBuilder.setTitle("Clearing all records");
+                dialogBuilder.setMessage("Are you sure you want to clear all existing smart application records?");
+                dialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface di, int selection) {
+
+                    }
+                });
+                dialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface di, int selection) {
+                        Appliance.clearFile(new File(MainActivity.this.getFilesDir(), "records"));
+                        compContainer.removeAllViews();
+                        recordtext.setVisibility(View.VISIBLE);
+                    }
+                });
+
+
+                dialogBuilder.show();
+
+
+            }
+        });
+
+        //inprogresstext.setText(IPcontainer.getChildCount());
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("This appliance is already running. Please wait until it is " +
                 "finished to start it again.");
@@ -300,10 +335,22 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             // The fitness details
-            case "Skip leg day": info = "You really shouldn't.";
+            case "Ab wheel rollout": info = "Kneel on the floor and hold an ab wheel beneath your shoulders. " +
+                    "Brace your abs and roll the wheel forward until you feel you’re about to lose tension in your core and your " +
+                    "hips might sag. Roll yourself back to start. Do as many reps as you can with perfect form and end the set when you " +
+                    "think you might break form.\n\n" +
+                    "From mensfitness.com";
                 break;
-            case "Tip fedora": info = "M'lady.";
+            case "Front squat": info = "Set a barbell on a power rack at about shoulder height. Grab the power with an overhand grip at shoulder " +
+                    "width and raise your elbows until your upper arms are parallel to the floor. Take the bar out of the rack and let it rest on your " +
+                    "fingertips. Your elbows should be all the way up throughout the movement. Step back and set your feet at shoulder width with toes " +
+                    "turned out slightly. Squat as low as you can without losing the arch in your lower back.\n\n" +
+                    "From mensfitness.com";
                 break;
+            case "Romanian Deadlift": info = "A killer deadlift variation, hold a barbell with a shoulder-width grip and stand with feet hip-width apart. " +
+                    "Bend your hips back as far as you can. Allow your knees to bend as needed while you lower the bar along your shins until you feel a " +
+                    "stretch in your hamstrings. Keep your lower back in its natural arched position throughout.\n\n" +
+                    "From mensfitness.com";
         }
 
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);

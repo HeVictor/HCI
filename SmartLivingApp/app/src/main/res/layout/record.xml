@@ -5,7 +5,6 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/comp_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="50px"
@@ -14,14 +13,34 @@
         android:orientation="vertical"
         tools:context="com.example.victor.smartlivingapp.MainActivity">
 
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20px"
-            android:layout_marginTop="20px"
-            android:text="Applicance Records"
-            android:textSize="30dp" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20px"
+                android:layout_marginTop="20px"
+                android:text="Applicance Records"
+                android:textSize="30dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+
+            <Button
+                android:id="@+id/clear_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="Clear" />
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/recordtext"
@@ -32,6 +51,13 @@
             android:text="No Appliance Records for This User!"
             android:textSize="20dp"
             android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/comp_container"
+            android:orientation="vertical">
+        </LinearLayout>
 
 
     </LinearLayout>
