@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30px"
         android:layout_marginRight="30px"
-        android:text="Vacuum"
+        android:text="SmartVacuum"
         android:textColor="#81DAF5"
         android:textSize="25dp"
         android:textStyle="bold" />

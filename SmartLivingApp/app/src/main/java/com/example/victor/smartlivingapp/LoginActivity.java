@@ -76,13 +76,12 @@ public class LoginActivity extends Activity {
                     if (username_field.getText().toString().equals("user") && password_field.getText().toString().equals("pass")) {
                         // correct login
 
-
-                        launchMainAct();
-
-                        // clear text fields
+                        // Clear the text fields allowing for user input
                         username_field.setText("");
                         password_field.setText("");
 
+
+                        launchMainAct();
 
                     } else {
                         // wrong login
@@ -92,6 +91,12 @@ public class LoginActivity extends Activity {
                     // Handles when the user is at the register-version of the activity
                 } else {
                     // No implementation, the register button is just here to show what a registering screen looks like.
+                    /*Appliance.saveRecord(LoginActivity.this,"WTF");
+                    String str = Appliance.readRecord(new File(LoginActivity.this.getFilesDir(), "records"));
+
+                    username_field.setText(str);
+
+                   Appliance.clearFile(new File(LoginActivity.this.getFilesDir(), "records"));*/
                 }
 
 

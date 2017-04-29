@@ -63,7 +63,7 @@
             android:text="Wrong login, please try again"
             android:textColor="#DB7093"
             android:textSize="15dp"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/register_link"
