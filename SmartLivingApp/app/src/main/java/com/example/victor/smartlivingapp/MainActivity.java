@@ -11,16 +11,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 import android.view.Menu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.view.LayoutInflater;
 import android.content.Context;
-
 import java.io.File;
 import java.util.*;
 import android.content.DialogInterface;
@@ -29,38 +26,48 @@ import android.content.DialogInterface;
 public class MainActivity extends AppCompatActivity {
 
     private ViewFlipper vf;
+    private ArrayList<Appliance> vacuumList = new ArrayList<Appliance>();
+    private ArrayList<Appliance> lawnmowerList = new ArrayList<Appliance>();
+
+    //elements in appliances view
     private Button vacuumButton;
     private Button lawnmowerButton;
-    private Button leftButton;
-    private Button rightButton;
-    private Button upButton;
-    private Button downButton;
-    private Button backButton;
-    private Button clearButton;
+    private AlertDialog alertDialog;
 
-    private TextView directionControl;
+    //elements in lifestyle view
+    private ListView diet;
+    private ListView fitness;
+    private String[] dietOptions = {"Roast Beef and Horseradish Cream on Pear",
+            "Beet Chips With Curried Yogurt", "Sweet Potato Fries With Chipotle Yogurt"};
+    private String[] fitnessOptions = {"Ab wheel rollout", "Front squat", "Romanian Deadlift"};
+
+    //elements in records view
+    private Button clearButton;
+    private TextView recordtext;
+    private LinearLayout compContainer;
+    private LayoutInflater vi;
+
+    //elements in in-progress view
+    private TextView inprogresstext;
     private ProgressBar vacuumProgress;
     private ProgressBar lawnmowerProgress;
     private TextView vPower;
     private TextView lPower;
     private TextView vDate;
     private TextView lDate;
-    private TextView inprogresstext;
-    private TextView recordtext;
-
-    private ListView diet;
-    private ListView fitness;
-    private String[] dietOptions = {"Roast Beef and Horseradish Cream on Pear","Beet Chips With Curried Yogurt", "Sweet Potato Fries With Chipotle Yogurt"};
-    private String[] fitnessOptions = {"Ab wheel rollout", "Front squat", "Romanian Deadlift"};
+    private LinearLayout IPcontainer;
     private LinearLayout vViewGroupIP;
     private LinearLayout lViewGroupIP;
-    private LinearLayout IPcontainer;
-    private LinearLayout compContainer;
-    private LayoutInflater vi;
-    private ArrayList<Appliance> vacuumList = new ArrayList<Appliance>();
-    private ArrayList<Appliance> lawnmowerList = new ArrayList<Appliance>();
-    private AlertDialog alertDialog;
 
+    //elements in control view
+    private TextView directionControl;
+    private Button leftButton;
+    private Button rightButton;
+    private Button upButton;
+    private Button downButton;
+    private Button backButton;
+
+    //bottom navigation menu listener
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -90,12 +97,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        //initialize bottom navbar
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        //viewflipper to view different views in navbar
         vf = (ViewFlipper)findViewById( R.id.viewFlipper );
+
+        //elements in appliances view
         vacuumButton = (Button) findViewById(R.id.vacuum_button);
         lawnmowerButton = (Button) findViewById(R.id.lawnmower_button);
+
+        //elements in lifestyle view
+        diet = (ListView) findViewById(R.id.diet_list);
+        fitness = (ListView)findViewById(R.id.fitness_list);
+        ArrayAdapter dietAdapter = new ArrayAdapter<String>(this,R.layout.listview_settings,dietOptions);
+        diet.setAdapter(dietAdapter);
+        ArrayAdapter fitnessAdapter = new ArrayAdapter<String>(this,R.layout.listview_settings,fitnessOptions);
+        fitness.setAdapter(fitnessAdapter);
+
+        //elements in records view
+        clearButton = (Button) findViewById(R.id.clear_button);
+        recordtext = (TextView) findViewById(R.id.recordtext);
+        compContainer = (LinearLayout) findViewById(R.id.comp_container);
+        vi = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        //elements in in-progress view
         vacuumProgress = (ProgressBar) findViewById(R.id.vacuum_progress);
         lawnmowerProgress = (ProgressBar) findViewById(R.id.lawnmower_progress);
         vPower= (TextView) findViewById(R.id.vacuum_power);
@@ -103,59 +130,56 @@ public class MainActivity extends AppCompatActivity {
         vDate = (TextView) findViewById(R.id.vacuum_date);
         lDate = (TextView) findViewById(R.id.lawnmower_date);
         inprogresstext = (TextView) findViewById(R.id.inprogresstext);
-        recordtext = (TextView) findViewById(R.id.recordtext);
+        vViewGroupIP = (LinearLayout) findViewById(R.id.vacuum_inprogress);
+        lViewGroupIP = (LinearLayout) findViewById(R.id.lawnmower_inprogress);
+        IPcontainer = (LinearLayout) findViewById(R.id.IP_container);
 
-        diet = (ListView) findViewById(R.id.diet_list);
-        fitness = (ListView)findViewById(R.id.fitness_list);
+        //elements in control viewe
         leftButton = (Button) findViewById(R.id.left_button);
         rightButton = (Button) findViewById(R.id.right_button);
         downButton = (Button) findViewById(R.id.down_button);
         upButton = (Button) findViewById(R.id.up_button);
         directionControl = (TextView) findViewById(R.id.direction_control);
         backButton = (Button) findViewById(R.id.back_button);
-        clearButton = (Button) findViewById(R.id.clear_button);
 
-        ArrayAdapter dietAdapter = new ArrayAdapter<String>(this,R.layout.listview_settings,dietOptions);
-        diet.setAdapter(dietAdapter);
-        ArrayAdapter fitnessAdapter = new ArrayAdapter<String>(this,R.layout.listview_settings,fitnessOptions);
-        fitness.setAdapter(fitnessAdapter);
 
+        //make progress bars larger
+        vacuumProgress.setScaleY(3f);
+        lawnmowerProgress.setScaleY(3f);
+
+        //Initially remove in-progress views since no appliances will be running when app is launched
+        IPcontainer.removeView(vViewGroupIP);
+        IPcontainer.removeView(lViewGroupIP);
+
+        //remember records from previous login
+        Appliance.setupExistingRecords(this,compContainer,vi,recordtext);
+
+        //set title
+        setTitle("SmartLiving");
+        vf.setDisplayedChild(0);
+        directionControl.setText("Moving Forward");
+
+        //diet listview listener
         diet.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 String selected = (String) diet.getItemAtPosition(position);
-
                 setupLifestyleDialog(selected,"diet");
 
             }
         });
 
+        //fitness listview listener
         fitness.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 String selected = (String) fitness.getItemAtPosition(position);
-
                 setupLifestyleDialog(selected,"fitness");
 
             }
         });
 
-        vViewGroupIP = (LinearLayout) findViewById(R.id.vacuum_inprogress);
-        lViewGroupIP = (LinearLayout) findViewById(R.id.lawnmower_inprogress);
-        IPcontainer = (LinearLayout) findViewById(R.id.IP_container);
-        compContainer = (LinearLayout) findViewById(R.id.comp_container);
-        vi = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        vacuumProgress.setScaleY(3f);
-        lawnmowerProgress.setScaleY(3f);
-
-        IPcontainer.removeView(vViewGroupIP);
-        IPcontainer.removeView(lViewGroupIP);
-
-        Appliance.setupExistingRecords(this,compContainer,vi,recordtext);
-
+        //clear button listener
         clearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -178,18 +202,41 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-
                 dialogBuilder.show();
-
 
             }
         });
 
-        //inprogresstext.setText(IPcontainer.getChildCount());
+        //back button listener
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vf.setDisplayedChild(3);
+            }
+        });
+
+        //in-progress listener to display control screen
+        vViewGroupIP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vf.setDisplayedChild(4);
+            }
+        });
+
+        //in-progress listener to display control screen
+        lViewGroupIP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vf.setDisplayedChild(4);
+            }
+        });
+
+        //alert dialogue that shows if an appliance is already running
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("This appliance is already running. Please wait until it is " +
                 "finished to start it again.");
 
+        //set okay button
         alertDialogBuilder.setPositiveButton("Okay",new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -197,8 +244,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //create the dialogue
         alertDialog = alertDialogBuilder.create();
 
+        //vacuum button listener
         vacuumButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -212,7 +261,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        //lawnmower button listener
         lawnmowerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -225,6 +274,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //control view left button listener
         leftButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -232,6 +282,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //control view right button listener
         rightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -239,6 +290,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //control view forward button listener
         upButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -246,6 +298,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //control view backwards button listener
         downButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -253,33 +306,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vf.setDisplayedChild(3);
-            }
-        });
-
-        //set title
-        setTitle("SmartLiving");
-        vf.setDisplayedChild(0);
-        directionControl.setText("Moving Forward");
-
-        vViewGroupIP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vf.setDisplayedChild(4);
-            }
-        });
-
-        lViewGroupIP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vf.setDisplayedChild(4);
-            }
-        });
-
     }
+    //end of onCreate method
 
     // create an action bar button
     @Override
@@ -299,6 +327,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //method is called when vacuum or lawnmower button is pushed in appliance tab
     public void createAppliance(String type, ProgressBar bar, TextView power, LinearLayout ip,
                                 LinearLayout IPcont, LinearLayout compCont,
                                 LayoutInflater vi, TextView dateField, TextView inprogresstext, TextView recordtext) {
