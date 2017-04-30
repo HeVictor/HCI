@@ -2,6 +2,7 @@ package com.example.victor.smartlivingapp;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,7 @@ public class Appliance {
     private int progress;
     private double rate;
     private boolean doStop;
+    private AlertDialog stopDialog;
 
     /**
      * Constructor for Appliance determines the type of appliance and the electricity consumption
@@ -82,7 +84,7 @@ public class Appliance {
                     }
                 };
 
-                ((MainActivity) mainActivity).setupDialog("Stopping appliance", "Are you sure you" +
+                stopDialog = ((MainActivity) mainActivity).setupDialog("Stopping appliance", "Are you sure you" +
                         "want to stop this appliance?", l, "Confirmation");
             }
         };
@@ -90,6 +92,7 @@ public class Appliance {
         //stop button listener to stop running appliance in in-progress screen
         stopButton.setOnClickListener(listener);
 
+        // run the appliance
         runAppliance(bar, power, mainActivity, ip, contIP, compCont, vi, dateField,
                 inprogresstext, recordtext);
     }
@@ -205,8 +208,12 @@ public class Appliance {
                                         ((MainActivity) mainActivity).getNavigation().setVisibility(View.VISIBLE);
                                     }
                                 };
-                                ((MainActivity) mainActivity).setupDialog("Operation completed","The smart appliance has finished its operation.",listener,"OK");
+                                ((MainActivity) mainActivity).setupDialog("Operation completed",
+                                        "The smart appliance has finished its operation.",listener,"OK");
                             }
+
+                            // dismiss the stop confirmation dialog if user has not clicked it
+                            stopDialog.dismiss();
 
                             // Terminate the timer
                             timer.cancel();

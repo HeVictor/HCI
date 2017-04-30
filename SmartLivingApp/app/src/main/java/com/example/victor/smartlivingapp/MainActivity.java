@@ -366,8 +366,8 @@ public class MainActivity extends AppCompatActivity {
         return navigation;
     }
 
-    // This method sets up a dialog with an ok button
-    public void setupDialog(String title, String content, DialogInterface.OnClickListener listener, String dialogType) {
+    // This method sets up a dialog with an ok button and returns the dialog object
+    public AlertDialog setupDialog(String title, String content, DialogInterface.OnClickListener listener, String dialogType) {
 
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setTitle(title);
@@ -380,7 +380,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         dialogBuilder.setMessage(content);
-        dialogBuilder.show();
+
+        AlertDialog dialog = dialogBuilder.create();
+
+        dialog.show();
+
+        return dialog;
 
     }
 
