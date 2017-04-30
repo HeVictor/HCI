@@ -123,8 +123,8 @@ public class Appliance {
                              final ViewGroup contIP, final ViewGroup compCont,
                              final LayoutInflater vi, final TextView dateField,
                              final TextView inprogresstext, final TextView recordtext) {
-        int delay = 1000; // delay for 5 sec.
-        int period = 100; // repeat every sec.
+        int delay = 1000; // delay for 1000 ms.
+        int period = 200; // repeat every 200 ms.
         final Timer timer = new Timer();
 
         // The timer periodically increments the progress bar until the appliance finishes
