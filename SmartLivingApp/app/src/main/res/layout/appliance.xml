@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20px"
         android:layout_marginTop="20px"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="Appliances"
         android:textSize="30dp" />
 
@@ -29,9 +30,8 @@
         android:layout_marginTop="20px"
         android:text="Start Vacuum"
         android:drawableRight="@drawable/vacuum"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
         android:paddingLeft="30dp"
+        android:paddingRight="30dp"
         android:gravity="left|center_vertical"/>
 
     <Button
@@ -43,6 +43,7 @@
         android:text="Start Lawnmower"
         android:drawableRight="@drawable/lawnmower"
         android:paddingLeft="30dp"
+        android:paddingRight="30dp"
         android:gravity="left|center_vertical"/>
 
 </LinearLayout>

@@ -17,10 +17,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="300px"
+            android:fontFamily="sans-serif-smallcaps"
             android:gravity="center"
             android:text="SmartLiving"
-            android:textSize="50dp"
-            android:textColor="#81DAF5"/>
+            android:textColor="#81DAF5"
+            android:textSize="50dp" />
 
         <Button
             android:id="@+id/button"
