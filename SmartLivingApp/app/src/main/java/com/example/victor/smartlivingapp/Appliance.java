@@ -2,10 +2,10 @@ package com.example.victor.smartlivingapp;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.app.Activity;
@@ -35,6 +35,7 @@ public class Appliance {
     private boolean completed;
     private int progress;
     private double rate;
+    private boolean doStop;
 
     /**
      * Constructor for Appliance determines the type of appliance and the electricity consumption
@@ -53,12 +54,13 @@ public class Appliance {
      * @param inprogresstext
      * @param recordtext
      */
-    public Appliance(String type, ProgressBar bar, TextView power, Activity mainActivity,
+    public Appliance(String type, ProgressBar bar, TextView power, final Activity mainActivity,
                      LinearLayout ip, LinearLayout contIP, LinearLayout compCont,
                      LayoutInflater vi, TextView dateField, TextView inprogresstext,
-                     TextView recordtext) {
+                     TextView recordtext, Button stopButton) {
         this.type = type;
         this.completed = false;
+        this.doStop = false;
 
         // Sets the predifine electiricty consumption rate for an appliance type.
         if(type.equals("vacuum")) rate = 0.61;
@@ -67,6 +69,27 @@ public class Appliance {
 
         // Starts the operation of running the appliance.
         contIP.addView(ip);
+
+        // Set up listener for stop button for the appliance.
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DialogInterface.OnClickListener l = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        doStop = true;
+                    }
+                };
+
+                ((MainActivity) mainActivity).setupDialog("Stopping appliance", "Are you sure you" +
+                        "want to stop this appliance?", l, "Confirmation");
+            }
+        };
+
+        //stop button listener to stop running appliance in in-progress screen
+        stopButton.setOnClickListener(listener);
+
         runAppliance(bar, power, mainActivity, ip, contIP, compCont, vi, dateField,
                 inprogresstext, recordtext);
     }
@@ -113,6 +136,26 @@ public class Appliance {
                     @Override
                     public void run() {
 
+                        // If user has pressed the stop button
+                        if (doStop) {
+
+                            // Mark as completed
+                            completed = true;
+
+                            // Terminate the timer
+                            timer.cancel();
+                            timer.purge();
+
+                            //remove the view
+                            contIP.removeView(ip);
+
+                            // Set progress bar to 0 for next appliance run.
+                            bar.setProgress(0);
+
+                            // finish here
+                            return;
+                        }
+
                         // Increment progress and show it on the progress bar.
                         progress += 1;
                         bar.setProgress(progress);
@@ -144,30 +187,26 @@ public class Appliance {
                             }
 
                             // Add the completed record to "Records"
-                            addCompletedRecord(type, vi, compCont, mainActivity, getCurrentDate());
+                            addCompletedRecord(type, vi, compCont, getCurrentDate());
 
                             // Save the completed record to internal storage as a line in a
                             // text file.
                             saveRecord(mainActivity,"SmartVacuum" + "@" + getCurrentDate());
 
+                            // If the user is inside the control screen when appliance finish
+                            // operation, pop up a dialog msg to notify them and then exit
+                            // the control screen
                             final ViewFlipper vf = ((MainActivity) mainActivity).getViewFlipper();
-
                             if (vf.getDisplayedChild() == 4) {
-
-                                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mainActivity);
-                                dialogBuilder.setTitle("Operation completed");
-                                dialogBuilder.setMessage("The smart appliance has finished its operation.");
-                                dialogBuilder.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+                                DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface di, int selection) {
                                         vf.setDisplayedChild(3);
+                                        ((MainActivity) mainActivity).getNavigation().setVisibility(View.VISIBLE);
                                     }
-                                });
-                                dialogBuilder.show();
-
+                                };
+                                ((MainActivity) mainActivity).setupDialog("Operation completed","The smart appliance has finished its operation.",listener,"OK");
                             }
-
-
 
                             // Terminate the timer
                             timer.cancel();
@@ -181,15 +220,13 @@ public class Appliance {
 
     /**
      * This method is used to add a completed record to the "Records" tab.
-     *
-     * @param type
+     *  @param type
      * @param vi
      * @param compCont
-     * @param context
      * @param date
      */
     private static void addCompletedRecord(String type, LayoutInflater vi, ViewGroup compCont,
-                                           Context context, String date) {
+                                           String date) {
 
         int lOrV = 0;
         LinearLayout recordview;
@@ -265,7 +302,7 @@ public class Appliance {
                 String appType = aRecord[0];
                 String appDate = aRecord[1];
 
-                addCompletedRecord(appType, vi, compCont, context, appDate);
+                addCompletedRecord(appType, vi, compCont, appDate);
                 line = br.readLine();
             }
         } catch (Exception e) {

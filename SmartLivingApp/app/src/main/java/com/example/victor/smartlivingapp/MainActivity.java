@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Appliance> vacuumList = new ArrayList<Appliance>();
     private ArrayList<Appliance> lawnmowerList = new ArrayList<Appliance>();
 
+    //the navigation bar
+    private BottomNavigationView navigation;
+
     //elements in appliances view
     private Button vacuumButton;
     private Button lawnmowerButton;
@@ -55,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView lPower;
     private TextView vDate;
     private TextView lDate;
+    private Button vStopButton;
+    private Button lStopButton;
     private LinearLayout IPcontainer;
     private LinearLayout vViewGroupIP;
     private LinearLayout lViewGroupIP;
@@ -98,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main);
 
         //initialize bottom navbar
-        final BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         //viewflipper to view different views in navbar
@@ -129,6 +134,8 @@ public class MainActivity extends AppCompatActivity {
         lPower = (TextView) findViewById(R.id.lawnmower_power);
         vDate = (TextView) findViewById(R.id.vacuum_date);
         lDate = (TextView) findViewById(R.id.lawnmower_date);
+        vStopButton = (Button) findViewById(R.id.stop_v_button);
+        lStopButton = (Button) findViewById(R.id.stop_l_button);
         inprogresstext = (TextView) findViewById(R.id.inprogresstext);
         vViewGroupIP = (LinearLayout) findViewById(R.id.vacuum_inprogress);
         lViewGroupIP = (LinearLayout) findViewById(R.id.lawnmower_inprogress);
@@ -184,7 +191,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Appliance.clearFile(new File(MainActivity.this.getFilesDir(), "records"));
+                        compContainer.removeAllViews();
+                        recordtext.setVisibility(View.VISIBLE);
+                    }
+                };
+
+                setupDialog("Clearing all records","Are you sure you want to clear all existing smart appliance records?",
+                        listener, "Confirmation");
+
+                /*AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);
                 dialogBuilder.setTitle("Clearing all records");
                 dialogBuilder.setMessage("Are you sure you want to clear all existing smart appliance records?");
                 dialogBuilder.setNegativeButton("No", null);
@@ -197,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                dialogBuilder.show();
+                dialogBuilder.show();*/
 
             }
         });
@@ -251,7 +270,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(vacuumList.size() == 0 || vacuumList.get(vacuumList.size() - 1).getCompleted()) {
                     createAppliance("vacuum", vacuumProgress, vPower, vViewGroupIP, IPcontainer,
-                            compContainer, vi, vDate, inprogresstext, recordtext);
+                            compContainer, vi, vDate, inprogresstext, recordtext, vStopButton);
                 } else {
                     alertDialog.show();
                 }
@@ -265,7 +284,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(lawnmowerList.size() == 0 || lawnmowerList.get(lawnmowerList.size() - 1).getCompleted()) {
                     createAppliance("lawnmower", lawnmowerProgress, lPower, lViewGroupIP, IPcontainer,
-                            compContainer, vi, lDate, inprogresstext, recordtext);
+                            compContainer, vi, lDate, inprogresstext, recordtext, lStopButton);
                 } else {
                     alertDialog.show();
                 }
@@ -328,8 +347,8 @@ public class MainActivity extends AppCompatActivity {
     //method is called when vacuum or lawnmower button is pushed in appliance tab
     public void createAppliance(String type, ProgressBar bar, TextView power, LinearLayout ip,
                                 LinearLayout IPcont, LinearLayout compCont,
-                                LayoutInflater vi, TextView dateField, TextView inprogresstext, TextView recordtext) {
-        Appliance newAppliance = new Appliance(type, bar, power, this, ip, IPcont, compCont, vi, dateField, inprogresstext, recordtext);
+                                LayoutInflater vi, TextView dateField, TextView inprogresstext, TextView recordtext, Button stopButton) {
+        Appliance newAppliance = new Appliance(type, bar, power, this, ip, IPcont, compCont, vi, dateField, inprogresstext, recordtext, stopButton);
         if(type.equals("vacuum")) {
             vacuumList.add(newAppliance);
         }
@@ -341,6 +360,28 @@ public class MainActivity extends AppCompatActivity {
     // This method gets the viewflipper for the app
     public ViewFlipper getViewFlipper() {
         return vf;
+    }
+
+    public BottomNavigationView getNavigation() {
+        return navigation;
+    }
+
+    // This method sets up a dialog with an ok button
+    public void setupDialog(String title, String content, DialogInterface.OnClickListener listener, String dialogType) {
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        dialogBuilder.setTitle(title);
+
+        if (dialogType.equals("OK")) {
+            dialogBuilder.setPositiveButton("Ok", listener);
+        } else if (dialogType.equals("Confirmation")) {
+            dialogBuilder.setNegativeButton("No", null);
+            dialogBuilder.setPositiveButton("Yes", listener);
+        }
+
+        dialogBuilder.setMessage(content);
+        dialogBuilder.show();
+
     }
 
     // This method sets up a popup dialog box to display details about their selected lifestyle option
@@ -384,11 +425,7 @@ public class MainActivity extends AppCompatActivity {
                     "From mensfitness.com";
         }
 
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);
-        dialogBuilder.setTitle("Your " + fitnessOrDiet + " details:");
-        dialogBuilder.setMessage(info);
-        dialogBuilder.setPositiveButton("Ok",null);
-        dialogBuilder.show();
+        setupDialog("Your " + fitnessOrDiet + " details:",info,null, "OK");
     }
 
 }
