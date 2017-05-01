@@ -107,6 +107,14 @@ public class Appliance {
     }
 
     /**
+     * Stops the operation
+     *
+     */
+    public void stop() {
+        this.doStop = true;
+    }
+
+    /**
      * This method runs the appliance and shows a self-incrementing progress bar while it is
      * happening in the "In Progress" tab. After completion, it saves the completed details
      * internally and also adds it to be displayed at the "Records" tab.
@@ -219,7 +227,9 @@ public class Appliance {
                             }
 
                             // dismiss the stop confirmation dialog if user has not clicked it
-                            stopDialog.dismiss();
+                            if(stopDialog != null) {
+                                stopDialog.dismiss();
+                            }
 
                             // Terminate the timer
                             timer.cancel();

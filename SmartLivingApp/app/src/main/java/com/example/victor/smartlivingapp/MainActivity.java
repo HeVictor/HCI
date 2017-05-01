@@ -21,10 +21,6 @@ import android.content.Context;
 import java.io.File;
 import java.util.*;
 import android.content.DialogInterface;
-import android.app.ActionBar;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.Color;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -157,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
         vacuumProgress.setScaleY(3f);
         lawnmowerProgress.setScaleY(3f);
 
+
         //Initially remove in-progress views since no appliances will be running when app is launched
         IPcontainer.removeView(vViewGroupIP);
         IPcontainer.removeView(lViewGroupIP);
@@ -205,21 +202,6 @@ public class MainActivity extends AppCompatActivity {
 
                 setupDialog("Clearing all records","Are you sure you want to clear all existing smart appliance records?",
                         listener, "Confirmation");
-
-                /*AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);
-                dialogBuilder.setTitle("Clearing all records");
-                dialogBuilder.setMessage("Are you sure you want to clear all existing smart appliance records?");
-                dialogBuilder.setNegativeButton("No", null);
-                dialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface di, int selection) {
-                        Appliance.clearFile(new File(MainActivity.this.getFilesDir(), "records"));
-                        compContainer.removeAllViews();
-                        recordtext.setVisibility(View.VISIBLE);
-                    }
-                });
-
-                dialogBuilder.show();*/
 
             }
         });
@@ -342,6 +324,12 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.btn_logout) {
+            if(vacuumList.size() > 0 && vacuumList.get(vacuumList.size()-1).getCompleted() == false) {
+                vacuumList.get(vacuumList.size()-1).stop();
+            }
+            if(lawnmowerList.size() > 0 && lawnmowerList.get(lawnmowerList.size()-1).getCompleted() == false) {
+                lawnmowerList.get(lawnmowerList.size()-1).stop();
+            }
             finish();
         }
         return super.onOptionsItemSelected(item);
